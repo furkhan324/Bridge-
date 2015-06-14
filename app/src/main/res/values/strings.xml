@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Bridge</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="openDrawer">Open Sesame</string>
+    <string name="closeDrawer">Closed</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="country_prompt">Choose a category for your volunteering event</string>
+
+    <string-array name="country_arrays">
+        <item>Computing and Tech</item>
+        <item>Environmentalism</item>
+        <item>Red Cross/Med Care</item>
+        <item>Humanities</item>
+        <item>Athletics</item>
+        <item>Travel</item>
+        <item>Acedemics</item>
+        <item>Fundraising</item>
+    </string-array>
+</resources>

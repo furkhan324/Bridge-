@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/ColorPrimary"
+
+    android:layout_height="match_parent"
+    android:id="@+id/splash">
+
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="bridge"
+        android:id="@+id/logo"
+        android:textColor="#ecf0f1"
+        android:textSize="50sp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Please wait while I determine your location. You will be redirected upon competion."
+        android:id="@+id/sublogo"
+        android:gravity="center"
+        android:textColor="#ecf0f1"
+        android:layout_below="@+id/imageView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:layout_width="30sp"
+        android:layout_height="30sp"
+        android:id="@+id/imageView5"
+        android:src="@drawable/location"
+        android:layout_below="@+id/logo"
+        android:layout_alignLeft="@+id/logo"
+        android:layout_alignStart="@+id/logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Location"
+
+        android:id="@+id/location"
+        android:textColor="#ecf0f1"
+        android:textSize="25sp"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_toRightOf="@+id/imageView5"
+        android:layout_toEndOf="@+id/imageView5"
+        android:layout_marginLeft="4dp" />
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:elevation="5dp"
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_below="@+id/sublogo"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

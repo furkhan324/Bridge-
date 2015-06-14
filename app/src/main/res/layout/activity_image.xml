@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/ColorPrimary"
+
+    android:layout_height="match_parent"
+    android:id="@+id/splash">
+
+    <ImageView
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="bridge"
+        android:id="@+id/logo"
+        android:textColor="#ecf0f1"
+        android:textSize="50sp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="One last step. Select a profile pic, and you'll be all set!"
+        android:id="@+id/sublogo"
+        android:gravity="center"
+        android:textColor="#ecf0f1"
+        android:layout_below="@+id/location"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Profile Picture"
+
+        android:id="@+id/location"
+        android:textColor="#ecf0f1"
+        android:textSize="25sp"
+
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:src="@drawable/gray"
+        android:layout_below="@+id/sublogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Use Camera"
+        android:id="@+id/join"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginLeft="67dp"
+        android:layout_marginBottom="28dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:text="New Text"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp"
+        android:background="#80ffffff"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="OR"
+        android:id="@+id/textView5"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
+        android:background="@color/ColorPrimary"
+        android:textColor="#fff" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:src="@drawable/gray"
+        android:layout_marginTop="44dp"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Use Gallery"
+        android:id="@+id/gallery"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginLeft="67dp"
+        android:layout_marginBottom="25dp" />
+    <!--
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView7"
+        android:src="@drawable/user"
+        android:layout_alignTop="@+id/location"
+        android:layout_toLeftOf="@+id/location"
+        android:layout_toStartOf="@+id/location"
+        android:layout_marginRight="10dp" />-->
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView8"
+        android:src="@drawable/camera2"
+        android:layout_alignBottom="@+id/button"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginBottom="23dp"
+        android:layout_marginLeft="21dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView9"
+        android:src="@drawable/gallery2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_marginBottom="21dp"
+        android:layout_marginLeft="21dp" />
+
+</RelativeLayout>

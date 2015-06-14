@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:id="@+id/add">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView6"
+        android:scaleType="fitXY"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/greenbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Name of Event"
+        android:id="@+id/subtitle"
+        android:layout_below="@+id/imageView6"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"
+        android:textColor="@color/ColorPrimary"
+        android:textSize="20sp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:id="@+id/name"
+        android:layout_below="@+id/subtitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:textColorHint="#fff"
+        android:hint="  Everythings got a name..."
+        android:background="#808BC34A"
+        android:textSize="15dp"
+        android:textColor="#fff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Choose a category"
+        android:id="@+id/subtitle2"
+        android:textColor="@color/ColorPrimary"
+        android:layout_below="@+id/name"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:entries="@array/country_arrays"
+        android:prompt="@string/country_prompt"
+        android:layout_below="@+id/subtitle2"
+        android:layout_alignLeft="@+id/subtitle2"
+        android:layout_alignStart="@+id/subtitle2"
+        android:layout_marginTop="15dp" />
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/imageView7"
+        android:src="@drawable/wcircle"
+        android:layout_above="@+id/subtitle"
+        android:layout_alignLeft="@+id/subtitle"
+        android:layout_alignStart="@+id/subtitle"
+        android:layout_marginBottom="64dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="1"
+        android:id="@+id/number"
+        android:layout_alignBottom="@+id/imageView7"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_marginLeft="15dp"
+        android:textSize="30dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/ColorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Event Info"
+        android:id="@+id/title"
+        android:layout_alignBottom="@+id/number"
+        android:layout_toRightOf="@+id/imageView7"
+        android:layout_toEndOf="@+id/imageView7"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/wcircle2"
+        android:id="@+id/next"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/wcircle2"
+        android:id="@+id/home"
+        android:layout_alignTop="@+id/next"
+        android:layout_toStartOf="@+id/next" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/imageView12"
+        android:layout_alignTop="@+id/home"
+        android:layout_alignStart="@+id/home"
+        android:src="@drawable/home3"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="18dp" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/imageView14"
+        android:src="@drawable/arrow3"
+        android:layout_marginLeft="18dp"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignEnd="@+id/next"
+        android:layout_marginEnd="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Event Description"
+
+        android:id="@+id/subtitle3"
+        android:textColor="@color/ColorPrimary"
+        android:layout_below="@+id/spinner"
+        android:layout_alignStart="@+id/spinner"
+        android:textSize="20dp"
+        android:textIsSelectable="false" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/desc"
+        android:gravity="top"
+        android:textColorHint="#fff"
+        android:hint="   Links, Details, Contact info, and everything in between..."
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#808BC34A"
+        android:textSize="15dp"
+        android:textColor="#fff"
+        android:layout_below="@+id/subtitle3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="25dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:id="@+id/add">
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:id="@+id/imageView6"
+        android:scaleType="fitXY"
+        android:background="@color/ColorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/subtitle"
+        android:layout_below="@+id/imageView6"
+        android:textColor="@color/ColorPrimary"
+        android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:id="@+id/imageView7"
+        android:src="@drawable/wcircle"
+        android:layout_above="@+id/subtitle"
+        android:layout_alignLeft="@+id/subtitle"
+        android:layout_alignStart="@+id/subtitle"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="3"
+        android:id="@+id/number"
+        android:layout_alignBottom="@+id/imageView7"
+        android:layout_alignLeft="@+id/imageView7"
+        android:layout_alignStart="@+id/imageView7"
+        android:layout_marginLeft="15dp"
+        android:textSize="30dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/ColorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select Time"
+        android:id="@+id/title"
+        android:layout_alignBottom="@+id/number"
+        android:layout_toRightOf="@+id/imageView7"
+        android:layout_toEndOf="@+id/imageView7"
+        android:textSize="30dp"
+        android:textColor="#fff"
+        android:layout_marginLeft="10dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/subtitle"
+        android:layout_alignLeft="@+id/subtitle"
+        android:layout_alignStart="@+id/subtitle"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/textView3"
+        android:textColor="@color/ColorPrimary"
+        android:layout_below="@+id/editText2"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="10dp" />
+
+    <TimePicker
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tp"
+
+        android:layout_below="@+id/imageView6" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/wcircle2"
+        android:id="@+id/next"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/editText2"
+        android:layout_marginTop="10dp" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/wcircle2"
+        android:id="@+id/home"
+        android:layout_alignTop="@+id/next"
+        android:layout_toStartOf="@+id/next" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/imageView12"
+        android:layout_alignTop="@+id/home"
+        android:layout_alignStart="@+id/home"
+        android:src="@drawable/home3"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="18dp" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:id="@+id/imageView14"
+        android:src="@drawable/arrow3"
+        android:layout_marginLeft="18dp"
+        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignEnd="@+id/next"
+        android:layout_marginEnd="17dp" />
+
+
+</RelativeLayout>
