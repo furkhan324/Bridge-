@@ -110,7 +110,7 @@ android:background="#fff"
     <ImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView2"
         android:layout_alignTop="@+id/home"
         android:layout_alignStart="@+id/home"
         android:src="@drawable/home3"
@@ -123,7 +123,7 @@ android:background="#fff"
         android:id="@+id/imageView14"
         android:src="@drawable/arrow3"
         android:layout_marginLeft="18dp"
-        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignTop="@+id/imageView2"
         android:layout_alignEnd="@+id/next"
         android:layout_marginEnd="17dp" />
 

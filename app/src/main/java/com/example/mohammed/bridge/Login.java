@@ -1,9 +1,13 @@
 package com.example.mohammed.bridge;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,8 +17,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by mohammed on 5/17/15.
@@ -25,48 +33,40 @@ public class Login extends Activity{
 
     private Handler handler = new Handler();
 
-
-    private TextView logo;
-    private TextView sublogo;
-    private TextView email;
-    private TextView password;
-    private TextView join;
-    private EditText email2;
-    private EditText password2;
-    private TextView login;
-    private ImageView im;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
-        logo =(TextView) findViewById(R.id.logo);
-        sublogo =(TextView) findViewById(R.id.sublogo);
-        email =(TextView) findViewById(R.id.email);
-        password =(TextView) findViewById(R.id.password);
-        im=(ImageView) findViewById(R.id.imageView4);
-        email2 =(EditText) findViewById(R.id.email2);
-        password2 =(EditText) findViewById(R.id.password2);
-        join =(TextView) findViewById(R.id.join);
-        login=(TextView) findViewById(R.id.login);
-        Typeface hmBold=Typeface.createFromAsset(getAssets(),"fonts/hmBold.otf");
-        Typeface bariol=Typeface.createFromAsset(getAssets(),"fonts/bariol.otf");
-        logo.setTypeface(hmBold);
-        join.setTypeface(bariol);
-        login.setTypeface(bariol);
-        sublogo.setTypeface(bariol);
-        email.setTypeface(bariol);
-        password.setTypeface(bariol);
-        email2.setTypeface(bariol);
-        password2.setTypeface(bariol);
+        setContentView(R.layout.splash2);
+       final EditText username= (EditText) findViewById(R.id.username);
+        final EditText password= (EditText) findViewById(R.id.password);
+        TextView login= (TextView) findViewById(R.id.login);
+        TextView sublogo= (TextView) findViewById(R.id.sublogo);
+        TextView tandc= (TextView) findViewById(R.id.signup);
+        ;ImageView login2 = (ImageView) findViewById(R.id.login2);
 
-        ////////////////////////////////////////////////////////////////////////////////////////
+        Typeface lb= Typeface.createFromAsset(getAssets(), "fonts/lb.ttf");
+        Typeface ll= Typeface.createFromAsset(getAssets(), "fonts/bariol.otf");
 
-        login.setOnClickListener(new View.OnClickListener() {
+        login.setTypeface(ll);
+        password.setTypeface(ll);
+        username.setTypeface(ll);
+        tandc.setTypeface(ll);
+        sublogo.setTypeface(ll);
+        ///////////////////////////////////////////////////////
+
+
+
+        login2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username;String password;
-                username = email2.getText().toString();
-                password = password2.getText().toString();
-                ParseUser.logInInBackground(username, password, new LogInCallback() {
+                if(username.getText().toString().equals("")||password.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(),
+                            "Fields need to be filled out"
+                            , Toast.LENGTH_LONG).show();
+                }
+                String username2;String password2;
+                username2 = username.getText().toString();
+                password2 = password.getText().toString();
+                ParseUser.logInInBackground(username2, password2, new LogInCallback() {
                     public void done(ParseUser user, com.parse.ParseException e) {
                         if (user != null) {
                             Intent i = new Intent("MAIN");
@@ -76,50 +76,30 @@ public class Login extends Activity{
                                     , Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(getApplicationContext(),
-                                    "There was an error logging in.",
+                                    "There was an error logging in. Incorrect Username or Password",
                                     Toast.LENGTH_LONG).show();
+                            Log.e("TAG",Log.getStackTraceString(e));
                         }
                     }
                 });
             }
         });
-        im.setOnClickListener(new View.OnClickListener() {
+        tandc.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View view) {
-                String username; String password;
-                username = email2.getText().toString();
-                password = password2.getText().toString();
-                ParseUser user = new ParseUser();
-                user.setUsername(username);
-                user.setPassword(password);
-                user.signUpInBackground(new SignUpCallback() {
-                    public void done(com.parse.ParseException e) {
-                        if (e == null) {
-                            //start sinch service
-                            //start next activity
-
-                            Intent i= new Intent("LOCATION");
-                            startActivity(i);
-                            Toast.makeText(getApplicationContext(),
-                                    "Logged in Succesfully."
-                                    , Toast.LENGTH_LONG).show();
-
-                        } else {
-                            Toast.makeText(getApplicationContext(),
-                                    "There was an error signing up."
-                                    , Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
+                Intent i= new Intent("SIGNUP");
+                startActivity(i);
             }
         });
 
+    /*
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             Intent i= new Intent("MAIN");
-            startActivity(i);
+            startActivity(i);}  */
 
-        }
+
         ///////////////////////////////////////////////////////////////////////////////////////
         //TextView tv=(TextView) findViewById(R.id.textView);
         //TextView logo=(TextView) findViewById(R.id.logo1);

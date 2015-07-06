@@ -38,8 +38,8 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
         if(position == 0) // if the position is 0 we are returning the First tab
         {
-            Home3 home = new Home3();
-            return home;
+            Home3 tab2 = new Home3();
+            return tab2;
         }
         else if(position == 1)         // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
         {
@@ -64,16 +64,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         // Generate title based on item position
         // return tabTitles[position];
-        Drawable image = context.getResources().getDrawable(imageResId[position]);
-
-
-            image.setBounds(0, 0,42, 42);
-
-
-        SpannableString sb = new SpannableString(" ");
-        ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
-        sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return sb;
+        return Titles[position];
     }
     @Override
     public int getCount() {

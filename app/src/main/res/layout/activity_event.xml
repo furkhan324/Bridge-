@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:id="@+id/activity_event">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/header2"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:elevation="3dp"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Event Details"
+        android:id="@+id/post"
+        android:layout_below="@+id/tool_bar"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:background="@color/ColorPrimary"
+        android:textColor="#fff"
+        android:layout_marginTop="0dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:id="@+id/profile"
+        android:src="@drawable/profile2"
+        android:layout_below="@+id/post"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="GiveTeens20 Fundraiser"
+        android:id="@+id/title"
+        android:layout_alignTop="@+id/profile"
+        android:layout_toEndOf="@+id/profile"
+        android:textColor="@color/ColorPrimary"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="By Kunal Shah"
+        android:id="@+id/poster"
+        android:layout_below="@+id/title"
+        android:layout_toEndOf="@+id/profile"
+        android:layout_marginLeft="10dp" />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Fundraiser for empowering students in third world countries. Scholarships will be presendted to long term volunteers as well."
+        android:id="@+id/desc"
+        android:layout_below="@+id/profile"
+        android:layout_alignLeft="@+id/profile"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6/24 @ 1 PM"
+        android:id="@+id/date"
+        android:layout_below="@+id/desc"
+        android:layout_alignStart="@+id/desc"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Join"
+        android:gravity="center"
+        android:id="@+id/enterevent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#fff"
+        android:background="@color/ColorPrimary"
+        android:textIsSelectable="true"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <fragment
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:id="@+id/map"
+        android:layout_below="@+id/date"
+        android:layout_above="@+id/enterevent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="Join"
+        android:gravity="center"
+        android:id="@+id/textView6"
+        android:textColor="#fff"
+        android:textIsSelectable="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/peopleicon"
+        android:id="@+id/imageView10"
+        android:layout_below="@+id/map"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23 Joined"
+        android:id="@+id/joiners"
+        android:layout_alignTop="@+id/imageView10"
+        android:layout_toEndOf="@+id/imageView10"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="7dp"
+        android:textColor="@color/ColorPrimary" />
+
+
+</RelativeLayout>

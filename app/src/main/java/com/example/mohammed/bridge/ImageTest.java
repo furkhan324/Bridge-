@@ -2,20 +2,12 @@ package com.example.mohammed.bridge;
 
 
 
-        import android.bluetooth.BluetoothAdapter;
-        import android.bluetooth.BluetoothDevice;
-
-        import android.content.ClipData;
-        import android.content.ClipboardManager;
-        import android.content.DialogInterface;
         import android.content.Intent;
-        import android.content.IntentFilter;
 
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
         import android.graphics.Typeface;
         import android.net.Uri;
-        import android.os.BatteryManager;
         import android.support.v7.app.ActionBarActivity;
         import android.os.Bundle;
 
@@ -24,20 +16,15 @@ package com.example.mohammed.bridge;
         import android.view.MenuItem;
         import android.view.View;
 
-        import android.widget.ArrayAdapter;
-        import android.widget.Button;
-        import android.widget.EditText;
         import android.widget.ImageView;
-        import android.widget.ListView;
         import android.widget.TextView;
         import android.widget.Toast;
 
+        import com.parse.ParseException;
         import com.parse.ParseUser;
 
         import java.io.ByteArrayOutputStream;
         import java.io.InputStream;
-        import java.util.ArrayList;
-        import java.util.Set;
 
 public class ImageTest extends ActionBarActivity {
     ImageView b1,b2;
@@ -51,21 +38,38 @@ public class ImageTest extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
-        logo =(TextView) findViewById(R.id.logo);
+       // logo =(TextView) findViewById(R.id.logo);
         sublogo =(TextView) findViewById(R.id.sublogo);
         location =(TextView) findViewById(R.id.location);
-        join =(TextView) findViewById(R.id.join);
+        TextView skip = (TextView) findViewById(R.id.skip);
+        join =(TextView) findViewById(R.id.enterevent);
         gallery =(TextView) findViewById(R.id.gallery);
         Typeface hmBold=Typeface.createFromAsset(getAssets(),"fonts/hmBold.otf");
         Typeface bariol=Typeface.createFromAsset(getAssets(),"fonts/bariol.otf");
-        logo.setTypeface(hmBold);
+       // logo.setTypeface(hmBold);
         sublogo.setTypeface(bariol);
         location.setTypeface(bariol);
         join.setTypeface(bariol);
         gallery.setTypeface(bariol);
+        skip.setTypeface(bariol);
         b1=(ImageView)findViewById(R.id.button);
         b2=(ImageView)findViewById(R.id.button2);
 
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("MAIN");
+                Bitmap bp = BitmapFactory.decodeResource(getResources(), R.drawable.def);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bp.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                byte[] byteArray = byteArrayOutputStream .toByteArray();
+                ParseUser currentUser= ParseUser.getCurrentUser();
+
+                String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                currentUser.put("profile",encoded);
+                startActivity(intent);
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +103,12 @@ if(rc==0){
 
         String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
         currentUser.put("profile",encoded);
-        byte[] decodedString = Base64.decode(encoded, Base64.DEFAULT);
+    try {
+        currentUser.save();
+    } catch (ParseException e) {
+        e.printStackTrace();
+    }
+    byte[] decodedString = Base64.decode(encoded, Base64.DEFAULT);
         Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);}
         else if(rc==1){
 
@@ -113,14 +122,14 @@ if(rc==0){
             yourSelectedImage.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream .toByteArray();
             ParseUser currentUser= ParseUser.getCurrentUser();
-
+currentUser.save();
             String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
             currentUser.put("profile",encoded);
         }
         catch (Throwable t){
 
             Toast.makeText(getApplicationContext(),
-                    "Alright, we are all set!",
+                    "Initializing",
                     Toast.LENGTH_LONG).show();
         }
 
@@ -144,8 +153,8 @@ if(rc==0){
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Intent i= new Intent("MAIN");
-                startActivity(i);
+               // Intent i= new Intent("MAIN");
+             //   startActivity(i);
             }
         }).start();
     }
@@ -170,8 +179,8 @@ if(rc==0){
 
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        //noinspection SimplifiableIfStatement'
+        if (id == R.menu.menu_main) {
             return true;
         }
         return super.onOptionsItemSelected(item);

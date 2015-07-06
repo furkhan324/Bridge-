@@ -116,7 +116,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Join Bridge!"
-        android:id="@+id/join"
+        android:id="@+id/enterevent"
         android:layout_alignBottom="@+id/imageView4"
         android:layout_alignLeft="@+id/imageView4"
         android:layout_alignStart="@+id/imageView4"

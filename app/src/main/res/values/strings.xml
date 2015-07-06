@@ -6,6 +6,7 @@
     <string name="openDrawer">Open Sesame</string>
     <string name="closeDrawer">Closed</string>
     <string name="title_activity_maps">Map</string>
+    <string name="facebook_app_id">1464476877197576</string>
     <string name="country_prompt">Choose a category for your volunteering event</string>
 
     <string-array name="country_arrays">
@@ -18,4 +19,6 @@
         <item>Acedemics</item>
         <item>Fundraising</item>
     </string-array>
+    <string name="title_activity_mock">Map</string>
+    <string name="title_activity_maps_activity2">Map</string>
 </resources>

@@ -1,15 +1,20 @@
 package com.example.mohammed.bridge;
 
-import android.app.Activity;
-
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +24,18 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 /**
@@ -40,68 +46,53 @@ public class Home3 extends Fragment {
 
 
     private String currentUserId;
-    private ArrayAdapter<String> namesArrayAdapter;
-    private ArrayList<String> names;
-    private ListView usersListView;
-    private Button logoutButton;
-    private ProgressDialog progressDialog;
-    private BroadcastReceiver receiver = null;
-    private List<ParseUser> users;
+
+    private List<ParseObject> entries;
     private userListAdapter listAdapter;
-    private static final String[] ALPHABET ={"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-    private ArrayList<String> alphabet= new ArrayList<String>();
-    TextView logo;
 
-    public void init(){
-
-        for(int i=0;i<ALPHABET.length;i++){
-            alphabet.add(i,ALPHABET[i]);
-        }
-    }
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.activity_home,container,false);
-        init();
-
-
-
         /////////////////done setting interface///////////////////////
 
 
-        currentUserId = ParseUser.getCurrentUser().getObjectId();
-        names = new ArrayList<String>();
-        ParseQuery<ParseUser> query = ParseUser.getQuery();
-        users =new ArrayList<ParseUser>();
-//don't include yourself
-        query.whereNotEqualTo("objectId", currentUserId);
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
+
+        try {
+            Log.e("TAG", "THis is the count "+query.count());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+//        query.setLimit(10);
+
 
         try{
-            users=query.find();}
+            entries=query.find();}
         catch(Exception e){}
-        listAdapter =new userListAdapter(users);
+        listAdapter =new userListAdapter(entries);
+//        Log.e("TAG", entries.toString());
 
         ListView list = (ListView) v.findViewById(R.id.listView2);
-        ImageView add= (ImageView) v.findViewById(R.id.add);
+
+  //      Log.e("TAG", entries.toString());
+        if(entries==null){
+Log.e("TAG", "ENTRIES IS STILL NULL");
+        }
+        else{
         list.setAdapter(listAdapter);
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i= new Intent("ADD");
-                startActivity(i);
-            }
-        });
-
+            listAdapter.notifyDataSetChanged();
         /////////////////////////onClickoftheuserlist//////////////////////
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
                                     long arg3) {
-
+            Intent i = new Intent("EVENT");
+            startActivity(i);
+                
 
             }
-        });
+        });}
         return v;
     }
 
@@ -147,22 +138,22 @@ public class Home3 extends Fragment {
 
 
     public class userListAdapter extends BaseAdapter{
-        List<ParseUser> users2;
+        List<ParseObject> entries2;
 
-        public userListAdapter(List<ParseUser> users){
+        public userListAdapter(List<ParseObject> users){
 
-            users2=users;
+            entries2=users;
 
         }
         public int getCount() {
             // TODO Auto-generated method stub
-            return users2.size();
+            return entries2.size();
         }
 
         @Override
-        public ParseUser getItem(int arg0) {
+        public ParseObject getItem(int arg0) {
             // TODO Auto-generated method stub
-            return users2.get(arg0);
+            return entries2.get(arg0);
         }
 
         @Override
@@ -170,7 +161,7 @@ public class Home3 extends Fragment {
             // TODO Auto-generated method stub
             return arg0;
         }
-
+/*
         @Override
         public View getView(int arg0, View arg1, ViewGroup arg2) {
 
@@ -185,20 +176,19 @@ public class Home3 extends Fragment {
             TextView icon=(TextView) arg1.findViewById(R.id.textView7);
             TextView chapterName = (TextView)arg1.findViewById(R.id.textView1);
             TextView chapterDesc = (TextView)arg1.findViewById(R.id.textView2);
-            TextView cd = (TextView)arg1.findViewById(R.id.textView6);
+
             ImageView iconImage=(ImageView) arg1.findViewById(R.id.imageView1);
 
 
 
 
             chapterName.setTypeface(bariol);
-            cd.setTypeface(bariol);
             chapterDesc.setTypeface(bariol);
-            icon.setTypeface(bariol);
+            //icon.setTypeface(bariol);
             ParseUser chapter = users2.get(arg0);
 
 
-            icon.setText(chapter.getUsername().toString().substring(0, 1).toUpperCase());
+            //icon.setText(chapter.getUsername().toString().substring(0, 1).toUpperCase());
             chapterName.setText("Test Volunteering Opp");
             chapterDesc.setText("Testing beta succesfull");
             int x=arg0;
@@ -211,10 +201,83 @@ public class Home3 extends Fragment {
 
             return arg1;
         }
+*/
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent){
 
-        public ParseUser getPosition(int position)
+            RelativeLayout layout = null;
+
+            if (convertView == null) {
+                // inflating the row
+                LayoutInflater mInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                layout = (RelativeLayout) mInflater.inflate(
+                        R.layout.list_item2, parent, false);
+
+
+            }else{
+                layout =(RelativeLayout) convertView;
+            }
+            Typeface bariol=Typeface.createFromAsset(getActivity().getAssets(), "fonts/ll.ttf");
+
+            TextView title=(TextView) layout.findViewById(R.id.title);
+            TextView desc = (TextView)layout.findViewById(R.id.desc);
+            TextView joined = (TextView)layout.findViewById(R.id.joined);
+
+            TextView timePassed = (TextView)layout.findViewById(R.id.timePassed);
+            joined.setTypeface(bariol);
+            desc.setTypeface(bariol);
+            title.setTypeface(bariol);
+            timePassed.setTypeface(bariol);
+
+
+         //   ImageView profile=(ImageView) layout.findViewById(R.id.profile);
+           // ImageView check=(ImageView) layout.findViewById(R.id.check);
+            //have to get the bitmap of the profile user who posted/
+            /*ParseObject entry = entries2.get(position);
+            if (entry==null){
+            Log.e("TAG","Entry"+ position+" is null");}
+
+            else {
+
+                if(entry.get("picture")==null)
+                {
+                    Log.e("TAG","picture"+ position+" is null");
+                }else{
+                    String encoded = entry.get("picture").toString();
+                byte[] decodedString = Base64.decode(encoded, Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                profile.setImageBitmap(decodedByte);}
+                // this sets the green check to the view
+                check.setImageResource(R.drawable.ok);
+                //to be adjusted later
+                //set title of post
+                if(entry.get("name")==null){
+                    Log.e("TAG","title"+ position+" is null");
+             }else{
+                    title.setText(entry.get("name").toString());
+                }
+                //set description of the post
+                if(entry.getString("poster")==null){
+                    Log.e("TAG","poster"+ position+" is null");
+                }else{
+                String description = "By " + entry.getString("poster");
+                desc.setText(description);}
+
+                //sets city and state in listview
+                if(entry.getString("city")==null||entry.getString("state")==null){
+                    Log.e("TAG","city"+ position+" is null");
+                }else {
+                    city.setText(entry.getString("city") + ", " + entry.getString("state"));
+                    //
+                }
+            }*/
+
+
+return layout;
+        }
+        public ParseObject getPosition(int position)
         {
-            return users2.get(position);
+            return entries2.get(position);
         }
 
     }

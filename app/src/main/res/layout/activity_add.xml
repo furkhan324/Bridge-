@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff"
-    android:id="@+id/add">
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/add"
+    android:background="#fff">
 
 
     <ImageView
@@ -18,74 +19,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Name of Event"
-        android:id="@+id/subtitle"
-        android:layout_below="@+id/imageView6"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name"
-        android:textColor="@color/ColorPrimary"
-        android:textSize="20sp" />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="35dp"
-        android:id="@+id/name"
-        android:layout_below="@+id/subtitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        android:textColorHint="#fff"
-        android:hint="  Everythings got a name..."
-        android:background="#808BC34A"
-        android:textSize="15dp"
-        android:textColor="#fff" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Choose a category"
-        android:id="@+id/subtitle2"
-        android:textColor="@color/ColorPrimary"
-        android:layout_below="@+id/name"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:entries="@array/country_arrays"
-        android:prompt="@string/country_prompt"
-        android:layout_below="@+id/subtitle2"
-        android:layout_alignLeft="@+id/subtitle2"
-        android:layout_alignStart="@+id/subtitle2"
-        android:layout_marginTop="15dp" />
-
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:id="@+id/imageView7"
-        android:src="@drawable/wcircle"
-        android:layout_above="@+id/subtitle"
-        android:layout_alignLeft="@+id/subtitle"
-        android:layout_alignStart="@+id/subtitle"
-        android:layout_marginBottom="64dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="1"
         android:id="@+id/number"
-        android:layout_alignBottom="@+id/imageView7"
-        android:layout_alignLeft="@+id/imageView7"
-        android:layout_alignStart="@+id/imageView7"
         android:layout_marginLeft="15dp"
         android:textSize="30dp"
         android:layout_marginBottom="4dp"
@@ -95,14 +30,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Event Info"
+        android:text="Post Community Event"
         android:id="@+id/title"
-        android:layout_alignBottom="@+id/number"
-        android:layout_toRightOf="@+id/imageView7"
-        android:layout_toEndOf="@+id/imageView7"
         android:textSize="30dp"
         android:textColor="#fff"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="12dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp" />
 
     <ImageView
         android:layout_width="50dp"
@@ -110,9 +44,9 @@
         android:src="@drawable/wcircle2"
         android:id="@+id/next"
         android:layout_marginRight="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginEnd="16dp"
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="50dp"
@@ -125,7 +59,7 @@
     <ImageView
         android:layout_width="15dp"
         android:layout_height="15dp"
-        android:id="@+id/imageView12"
+        android:id="@+id/imageView2"
         android:layout_alignTop="@+id/home"
         android:layout_alignStart="@+id/home"
         android:src="@drawable/home3"
@@ -138,39 +72,236 @@
         android:id="@+id/imageView14"
         android:src="@drawable/arrow3"
         android:layout_marginLeft="18dp"
-        android:layout_alignTop="@+id/imageView12"
+        android:layout_alignTop="@+id/imageView2"
         android:layout_alignEnd="@+id/next"
         android:layout_marginEnd="17dp" />
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView6"
+        android:background="#fff"
+        android:id="@+id/scrollView">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="#fff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Name of Event"
+            android:id="@+id/name"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/nameedit" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:id="@+id/nameedit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:textColorHint="#fff"
+            android:hint="  Everythings got a name..."
+            android:background="#808BC34A"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:layout_below="@+id/name"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Choose a category"
+            android:id="@+id/category"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="20sp"
+            android:layout_below="@+id/nameedit"
+            android:layout_alignStart="@+id/nameedit"
+            android:layout_marginTop="10dp" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:entries="@array/country_arrays"
+            android:prompt="@string/country_prompt"
+            android:layout_below="@+id/category"
+            android:layout_alignStart="@+id/category"
+            android:background="#fff"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Event Description"
+            android:id="@+id/desc"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="20dp"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/spinner"
+            android:layout_alignStart="@+id/spinner"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="100dp"
+            android:id="@+id/descedit"
+            android:gravity="top"
+            android:textColorHint="#fff"
+            android:hint="   Links, Details, Contact info, and everything in between..."
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:background="#808BC34A"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:layout_below="@+id/desc"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Event Date?"
+            android:id="@+id/date"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="20dp"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/descedit"
+            android:layout_alignStart="@+id/descedit"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:id="@+id/dateedit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:textColorHint="#fff"
+            android:hint="  Everythings got a name..."
+            android:background="#808BC34A"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:layout_below="@+id/date"
+            android:layout_alignParentStart="true"
+            android:text="  Start Date of Event"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Event Time?"
+            android:id="@+id/time"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="20dp"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/dateedit"
+            android:layout_alignStart="@+id/dateedit"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:id="@+id/timeedit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:textColorHint="#fff"
+            android:hint="  Everythings got a name..."
+            android:background="#808BC34A"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:layout_below="@+id/time"
+            android:layout_alignParentStart="true"
+            android:text="  Start Tme of Event"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Location?"
+            android:id="@+id/location"
+            android:textColor="@color/ColorPrimary"
+            android:textSize="20dp"
+            android:textIsSelectable="false"
+            android:layout_below="@+id/timeedit"
+            android:layout_alignStart="@+id/timeedit"
+            android:layout_marginTop="10dp" />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:id="@+id/locationedit"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:textColorHint="#fff"
+            android:hint="  Everythings got a name..."
+            android:background="#808BC34A"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:text="  Last thing, enter a location!"
+            android:layout_below="@+id/location"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp" />
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+
+            android:id="@+id/map"
+            tools:context=".Add"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/locationedit"
+            android:layout_alignEnd="@+id/locationedit"
+            />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/enterlocation"
+            android:src="@drawable/wcircle2"
+            android:layout_below="@+id/locationedit"
+            android:layout_alignEnd="@+id/locationedit"
+            android:layout_marginTop="-20dp"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
+</ScrollView>
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/enterevent"
+        android:layout_marginRight="15dp"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignStart="@+id/title"
+        android:layout_marginStart="26dp" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/info"
+        android:layout_below="@+id/title"
+        android:layout_alignStart="@+id/title"
+        android:src="@drawable/info" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Event Description"
-
-        android:id="@+id/subtitle3"
-        android:textColor="@color/ColorPrimary"
-        android:layout_below="@+id/spinner"
-        android:layout_alignStart="@+id/spinner"
-        android:textSize="20dp"
-        android:textIsSelectable="false" />
-
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/desc"
-        android:gravity="top"
-        android:textColorHint="#fff"
-        android:hint="   Links, Details, Contact info, and everything in between..."
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#808BC34A"
-        android:textSize="15dp"
+        android:text="All events are visible to Bridge users nearby"
+        android:id="@+id/message"
         android:textColor="#fff"
-        android:layout_below="@+id/subtitle3"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="25dp" />
-
+        android:layout_below="@+id/title"
+        android:layout_alignStart="@+id/enterevent"
+        android:layout_marginRight="30dp" />
 
 </RelativeLayout>

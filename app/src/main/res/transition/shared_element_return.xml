@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="1000" android:transitionOrdering="sequential">
+    <transition class="com.sample.revealactivitytransition.RevealTransition"
+        android:transitionVisibilityMode="mode_out">
+        <targets>
+            <target android:targetId="@id/login" />
+        </targets>
+    </transition>
+    <transitionSet>
+        <changeBounds />
+        <changeTransform />
+        <changeImageTransform />
+        <transition class="com.sample.revealactivitytransition.RevealTransition"
+            android:transitionVisibilityMode="mode_in">
+            <targets>
+                <target android:targetName="snapshot" />
+            </targets>
+        </transition>
+    </transitionSet>
+</transitionSet>

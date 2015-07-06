@@ -43,7 +43,7 @@ import android.widget.TextView;
 public class SlidingTabLayout extends HorizontalScrollView {
     /**
      * Allows complete control over the colors drawn in the tab layout. Set with
-     * {@link #setCustomTabColorizer(TabColorizer)}.
+
      */
     public interface TabColorizer {
 
@@ -59,7 +59,6 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private static final int TAB_VIEW_TEXT_SIZE_SP = 12;
 
     private int mTitleOffset;
-
     private int mTabViewLayoutId;
     private int mTabViewTextViewId;
     private boolean mDistributeEvenly;
@@ -71,7 +70,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private ViewPager mViewPager;
     private SparseArray<String> mContentDescriptions = new SparseArray<String>();
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
-
+private Typeface ll;
     private final SlidingTabStrip mTabStrip;
 
     public SlidingTabLayout(Context context) {
@@ -103,7 +102,8 @@ public class SlidingTabLayout extends HorizontalScrollView {
      * {@link #setSelectedIndicatorColors(int...)} to achieve
      * similar effects.
      */
-    public void setCustomTabColorizer(TabColorizer tabColorizer) {
+    public void setCustomTabColorizer(TabColorizer tabColorizer, Typeface ll) {
+        this.ll=ll;
         mTabStrip.setCustomTabColorizer(tabColorizer);
     }
 
@@ -221,9 +221,12 @@ public class SlidingTabLayout extends HorizontalScrollView {
             if (i == mViewPager.getCurrentItem()) {
                 tabView.setSelected(true);
             }
-            tabTitleView.setTextColor(getResources().getColorStateList(R.color.ColorPrimary));
+
+            tabTitleView.setTextColor(getResources().getColorStateList(R.color.white));
             tabTitleView.setTextSize(14);
+           tabTitleView.setTypeface(ll);
         }
+
     }
 
     public void setContentDescription(int i, String desc) {

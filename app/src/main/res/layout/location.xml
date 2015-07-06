@@ -2,53 +2,39 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/ColorPrimary"
+    android:background="@drawable/bnight"
 
     android:layout_height="match_parent"
     android:id="@+id/splash">
 
     <ImageView
-        android:layout_width="100sp"
-        android:layout_height="50sp"
-        android:id="@+id/imageView"
-        android:src="@drawable/logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="71dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="bridge"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+     android:src="@drawable/bridgelogowhite"
         android:id="@+id/logo"
-        android:textColor="#ecf0f1"
-        android:textSize="50sp"
-        android:layout_below="@+id/imageView"
+
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Please wait while I determine your location. You will be redirected upon competion."
+        android:text="Bridge uses your location to suggest nearby events."
         android:id="@+id/sublogo"
         android:gravity="center"
         android:textColor="#ecf0f1"
-        android:layout_below="@+id/imageView5"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="6dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:layout_width="30sp"
         android:layout_height="30sp"
         android:id="@+id/imageView5"
-        android:src="@drawable/location"
-        android:layout_below="@+id/logo"
-        android:layout_alignLeft="@+id/logo"
-        android:layout_alignStart="@+id/logo" />
+        android:layout_toStartOf="@+id/location" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,18 +45,98 @@
         android:id="@+id/location"
         android:textColor="#ecf0f1"
         android:textSize="25sp"
-        android:layout_alignTop="@+id/imageView5"
-        android:layout_toRightOf="@+id/imageView5"
-        android:layout_toEndOf="@+id/imageView5"
-        android:layout_marginLeft="4dp" />
+        android:layout_marginLeft="4dp"
+        android:layout_alignBottom="@+id/logo"
+        android:layout_centerHorizontal="true" />
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:elevation="5dp"
         android:id="@+id/map"
         tools:context=".MapsActivity"
         android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Address"
+        android:ems="10"
+        android:textColorHint="#fff"
+        android:id="@+id/address"
+        android:textColor="#fff"
+        android:background="#00ffffff"
         android:layout_below="@+id/sublogo"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:id="@+id/imageView18"
+        android:src="@drawable/location"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/address"
+        android:layout_toStartOf="@+id/address" />
+
+    <ImageView
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView19"
+        android:src="@drawable/line"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="-3dp"
+        android:layout_below="@+id/address"
+        android:layout_alignStart="@+id/imageView18" />
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:id="@+id/search"
+        android:src="@drawable/button"
+        android:onClick="search"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/imageView19"
+        android:layout_alignEnd="@+id/imageView19" />
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:id="@+id/curlocation"
+        android:src="@drawable/button"
+        android:scaleType="fitXY"
+        android:onClick="location"
+        android:layout_below="@+id/imageView19"
+        android:layout_toStartOf="@+id/search" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Search"
+        android:id="@+id/search2"
+        android:textColor="#fff"
+        android:layout_alignBottom="@+id/search"
+        android:layout_toEndOf="@+id/location"
+        android:layout_marginLeft="18dp"
+        android:layout_marginBottom="17dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Use Current Location"
+        android:id="@+id/txtloc"
+        android:textColor="#fff"
+        android:layout_alignBottom="@+id/curlocation"
+        android:layout_alignStart="@+id/imageView18"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="19dp" />
+
 </RelativeLayout>
