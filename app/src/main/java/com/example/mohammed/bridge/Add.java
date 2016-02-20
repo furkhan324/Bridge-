@@ -1,6 +1,6 @@
 package com.example.mohammed.bridge;
 //class that adds events to bridge
-//takes user input added modal support as 
+//takes user input added modal support 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
