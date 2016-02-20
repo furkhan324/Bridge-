@@ -1,5 +1,5 @@
 package com.example.mohammed.bridge;
-
+//class that adds events to bridge
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
