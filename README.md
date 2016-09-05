@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-Find and join events around you. Geolocation based event curator. Built with Parse ,GoogleMaps API's, Java (Android)
+Find and join events around you. Geolocation based event curator. Built with Parse, GoogleMaps API's, Java (Android)
 
 ## Demo
 
 Live Version: [link](https://play.google.com/store/apps/details?id=com.exampless.mohammed.bridge&hl=en "Bridge"). 
 
-## Routes
+## Parse Queries
 
 ```Java
 ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
@@ -30,24 +30,23 @@ ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
 
 API's and Frameworks used:
 
-- Express.js [link](https://expressjs.com/ "Braintree"). Express used for REST routing
-- Heroku [link](https://www.heroku.com/ "Firebase"). Node server hosted on Heroku
-- MongoDB [link](https://docs.mongodb.com/ "MongoDB"). Storage, noSQL JSON based storage
+- Java/Android APIs [link](https://developer.android.com/index.html "Android/Java"). Android APIs 
+- Google Places API [link](https://developers.google.com/places/ "Firebase"). Used for geocoding
+- Parse [link](https://Parse.com/ "Parse"). Storage, noSQL table storage
 
 
 ## Installation
 
-Clone repo and open in Xcode.
+Clone repo and open in Android Studio.
 
 ```
-git clone https://github.com/furkhan324/myworkrep.git
-cd <into_directory_where_cloned>
-npm install
+git clone https://github.com/furkhan324/bridge-.git
+#open gradle.build from Android Studio to launch the project
 ```
 
 ## Contributors
 
-Mohammed Abdulwahhab (@furkhan324), Taj Shaik(@tajshaik24)
+Mohammed Abdulwahhab (@furkhan324)
 
 ## License
 
